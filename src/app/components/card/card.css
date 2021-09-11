@@ -1,0 +1,54 @@
+.card__list {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    display: flex;
+}
+
+.card {
+    width: 13%;
+    padding-bottom: 6%;
+    border: solid 2px teal;
+    border-radius: 10px;
+    background-position: center;
+    background-size: cover;
+    filter: grayscale(100%);
+    cursor: pointer;
+}
+
+.card:nth-child(n + 2) {
+    margin-left: 1%;
+}
+
+.card__visa {
+    background-image: url('./img/visa_straight.png');
+}
+
+.card__master-card {
+    background-image: url('./img/mastercard_curved.png');
+}
+
+.card__dinners-club {
+    background-image: url('./img/cirrus_curved.png');
+}
+
+.card__american-express {
+    background-image: url('./img/american_express_curved.png');
+}
+
+.card__jcb {
+    background-image: url('./img/jcb.png');
+}
+
+.card__discover {
+    background-image: url('./img/discover_curved.png');
+}
+
+.card__mir {
+    background-image: url('./img/mir.png');
+}
+
+.card__active {
+    filter: grayscale(0%);
+}
