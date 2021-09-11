@@ -1,6 +1,11 @@
 module.exports = {
     verbose: false,
     projects: [
+        // {
+        //     displayName: 'e2eSrver',
+        //     // testEnvironment: 'jsDom',
+        //     testMatch: ['**/tests/e2eServer/*.test.js'],
+        // },
         {
             displayName: 'e2e',
             preset: 'jest-puppeteer',
@@ -8,11 +13,6 @@ module.exports = {
                 URL: 'http://localhost:9002/dist',
             },
             testMatch: ['**/tests/e2e/*.js'],
-        },
-        {
-            displayName: 'e2eSrver',
-            testEnvironment: 'jsDom',
-            testMatch: ['**/tests/e2eServer/*.test.js'],
         },
         {
             displayName: 'unit',
