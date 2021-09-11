@@ -1,1 +1,1 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/0qwwv0534jon3v0e?svg=true)](https://ci.appveyor.com/project/KirillKazakoff/yarn-cd)
+![Build status](https://ci.appveyor.com/api/projects/status/tkm0psa9eadbjg3a?svg=true)](https://ci.appveyor.com/project/KirillKazakoff/credcard)
