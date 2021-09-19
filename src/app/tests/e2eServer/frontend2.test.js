@@ -1,44 +1,50 @@
-// import puppetteer from 'puppeteer';
-// import { fork } from 'child_process';
+/**
+ * @jest-environment jsdom
+ */
 
-// jest.setTimeout(30000); // default puppeteer timeout
+import puppetteer from 'puppeteer';
+import { fork } from 'child_process';
 
-// describe('Credit Card Validator form', () => {
-//     let browser = null;
-//     let page = null;
-//     let server = null;
-//     const baseUrl = 'http://localhost:9001/dist';
+jest.setTimeout(30000); // default puppeteer timeout
 
-//     beforeAll(async () => {
-//         server = fork(`${__dirname}/e2e.server.js`);
-//         await new Promise((resolve, reject) => {
-//             server.on('error', reject);
-//             server.on('message', (message) => {
-//                 if (message === 'ok') {
-//                     resolve();
-//                 }
-//             });
-//         });
+describe('Credit Card Validator form', () => {
+    let browser = null;
+    let page = null;
+    let server = null;
+    const baseUrl = 'http://localhost:9001/dist';
 
-//         browser = await puppetteer.launch({
-//             // headless: false, // show gui
-//             // slowMo: 250,
-//             // devtools: true, // show devTools
-//         });
-//         page = await browser.newPage();
-//     });
+    beforeAll(async () => {
+        server = fork(`${__dirname}/e2e.server.js`);
+        await new Promise((resolve, reject) => {
+            server.on('error', reject);
+            server.on('message', (message) => {
+                if (message === 'ok') {
+                    resolve();
+                }
+            });
+        });
 
-//     test('should add do something', async () => {
-//         await page.goto(baseUrl, { waitUntil: 'domcontentloaded' });
+        browser = await puppetteer.launch({
+            // headless: false, // show gui
+            // slowMo: 250,
+            // devtools: true, // show devTools
+        });
+        page = await browser.newPage();
+    });
 
-//         document.body.innerHTML = '<div id="container"></div>';
-//         const container = document.querySelector('#container');
+    describe('something', () => {
+        test('should add do something', async () => {
+            await page.goto(baseUrl, { waitUntil: 'domcontentloaded' });
 
-//         expect(container.id).toBe('container');
-//     });
+            document.body.innerHTML = '<div id="container"></div>';
+            const container = document.querySelector('#container');
 
-//     afterAll(async () => {
-//         await browser.close();
-//         server.kill();
-//     });
-// });
+            expect(container.id).toBe('container');
+        });
+    });
+
+    afterAll(async () => {
+        await browser.close();
+        server.kill();
+    });
+});
